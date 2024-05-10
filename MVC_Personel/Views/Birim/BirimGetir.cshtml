@@ -1,0 +1,19 @@
+﻿@model MVC_Personel.Models.Birim
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "BirimGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br/>
+<form asp-controller="Birim" asp-action="BirimGuncelle" method="post">
+    
+    <b>Birim ID</b>
+    <input asp-for="BirimID" class="form-control" readonly />
+    <br />
+    <b>Birim Adı</b>
+    <input asp-for="Ad" class="form-control" /> <span asp-validation-for="Ad"></span>
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>
+

@@ -1,0 +1,31 @@
+﻿@model MVC_Personel.Models.PersonelBilgi
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "PersonelGetir";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br />
+<form asp-controller="Personel" asp-action="PersonelGuncelle" method="post">
+
+    <h2>Personel Bilgileri</h2>
+    <br/>
+    <b>Personel ID</b>
+    <input asp-for="PersonelID" class="form-control" readonly />
+    <br />
+    <b>Adı</b>
+    <input asp-for="Ad" class="form-control" /> <span asp-validation-for="Ad"></span>
+    <br />
+    <b>Soyad</b>
+    <input asp-for="Soyad" class="form-control" /> <span asp-validation-for="Soyad"></span>
+    <br />
+    <b>Şehir</b>
+    <input asp-for="Sehir" class="form-control" /> <span asp-validation-for="Sehir"></span>
+    <br />
+    <b>Birim Seç</b>
+    <select asp-for="BirimID" asp-items="@(List<SelectListItem>)ViewBag.Degerler" class="form-control">
+        <option value="">--Seçiniz--</option>
+    </select>
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>

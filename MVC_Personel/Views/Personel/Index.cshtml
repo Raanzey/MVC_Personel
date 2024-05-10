@@ -1,0 +1,32 @@
+﻿@using MVC_Personel.Models
+@model List<PersonelBilgi>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+<br/>
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Şehir</th>
+        <th>Birim Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.PersonelID</td>
+            <td>@x.Ad</td>
+            <td>@x.Soyad</td>
+            <td>@x.Sehir</td>
+            <td>@x.Birim.Ad</td>
+            <td><a href="/Personel/PersonelSil/@x.PersonelID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Personel/PersonelGetir/@x.PersonelID" class="btn btn-success">Güncelle</a></td>
+        </tr>
+    }
+</table>
+<a href="/Personel/PersonelEkle/" class="btn btn-primary">Yeni Personel</a>
